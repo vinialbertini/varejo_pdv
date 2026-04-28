@@ -78,9 +78,8 @@ begin
   TokenProvider.TokenEndpoint := 'https://auth.nuvemfiscal.com.br/oauth/token';
 
   // TODO:
-  // Troque pelos dados reais obtidos no console da Nuvem Fiscal.
-  TokenProvider.ClientId := 'SEU_CLIENT_ID';
-  TokenProvider.ClientSecret := 'SEU_CLIENT_SECRET';
+  TokenProvider.ClientId := '***';
+  TokenProvider.ClientSecret := '***';
   TokenProvider.Scope := 'empresa cep cnpj nfe nfce';
 
   TokenData := TokenProvider.RetrieveToken;
@@ -306,7 +305,7 @@ begin
   APedido.infNFe.transp.modFrete := 9; // sem frete
 
   DetPag := TNfeSefazDetPag.Create;
-  DetPag.indPag := 0; // à vista
+  DetPag.indPag := 0; // Ã  vista
   DetPag.tPag := '01'; // dinheiro
   DetPag.vPag := ADM.cdsNotaTOTAL.AsFloat;
   APedido.infNFe.pag.detPag.Add(DetPag);
@@ -326,7 +325,7 @@ begin
     Result.infNFe.ide.serie := 1;
   Result.infNFe.ide.nNF := ADM.cdsNotaNUMERO.AsInteger;
   Result.infNFe.ide.dhEmi := Now;
-  Result.infNFe.ide.tpNF := 1; // saída
+  Result.infNFe.ide.tpNF := 1; // saÃ­da
   Result.infNFe.ide.idDest := 1; // interna
   Result.infNFe.ide.cMunFG := SomenteNumeros(ADM.cdsEmitenteIBGE.AsString);
   Result.infNFe.ide.tpImp := IfThen(AModelo = 65, 4, 1);
